@@ -17,9 +17,8 @@
   h1, h2, h3, .kicker, .num { font-family: 'Montserrat', Arial, sans-serif; }
   .topbar { position: absolute; left: 0; top: 0; width: 1366px; height: 64px; background: #081129; border-bottom: 2px solid #f5b82e; }
   .brand { position: absolute; left: 60px; top: 20px; font-family: 'Montserrat', Arial, sans-serif; font-weight: 800; font-size: 18px; color: #f5b82e; letter-spacing: 1px; }
-  .nav { position: absolute; right: 60px; top: 22px; font-size: 15px; color: #9cc9ff; }
-  .nav span { margin-left: 28px; }
-  .nav .on { color: #f5b82e; font-weight: 600; }
+  .navi { position: absolute; top: 22px; font-size: 15px; color: #9cc9ff; white-space: nowrap; }
+  .navi.on { color: #f5b82e; font-weight: 600; }
   .accent-bar { width: 90px; height: 6px; background: #f5b82e; border-radius: 3px; }
   .footer-line { position: absolute; left: 60px; bottom: 28px; font-size: 14px; color: #9cc9ff; }
   .pagenum { position: absolute; right: 60px; bottom: 26px; font-family: 'Montserrat', Arial, sans-serif; font-size: 15px; color: #f5b82e; font-weight: 700; }
@@ -57,19 +56,19 @@
 
   /* Tarjetas */
   .card { position: absolute; background: #12234b; border: 2px solid #22427f; border-top: 6px solid #f5b82e; border-radius: 16px; padding: 22px 24px; }
-  .card .icon { position: absolute; left: 24px; top: 22px; width: 58px; height: 58px; border-radius: 14px; background: #0b1630; border: 2px solid #6fb7ff; }
+  .card .icon { position: absolute; left: 24px; top: 22px; width: 58px; height: 58px; }
   .card .num { position: absolute; right: 22px; top: 18px; font-size: 30px; font-weight: 800; color: #2f5aa8; }
   .card h3 { margin-left: 74px; margin-top: 2px; min-height: 58px; font-size: 21px; line-height: 27px; color: #ffffff; padding-right: 52px; }
-  .card ul { margin-top: 12px; list-style: none; }
-  .card li { position: relative; padding-left: 20px; font-size: 16px; line-height: 23px; color: #e3ecff; margin-bottom: 7px; }
-  .card li:before { content: ""; position: absolute; left: 0; top: 8px; width: 9px; height: 9px; border-radius: 50%; background: #f5b82e; }
+  .card .list { margin-top: 12px; }
+  .card .li { display: flex; align-items: flex-start; margin-bottom: 7px; }
+  .card .dot { flex: 0 0 9px; width: 9px; height: 9px; margin-top: 7px; margin-right: 11px; border-radius: 50%; background: #f5b82e; }
+  .card .lt { flex: 1; font-size: 16px; line-height: 23px; color: #e3ecff; }
 
   /* Conclusión */
   .concl-box { position: absolute; left: 183px; top: 250px; width: 1000px; height: 220px; background: #13254f; border: 2px solid #f5b82e; border-radius: 20px; padding: 44px 60px; text-align: center; }
   .concl-box p { font-size: 32px; line-height: 48px; color: #ffffff; font-weight: 600; }
   .concl-box p b { color: #f5b82e; }
-  .badges { position: absolute; left: 183px; top: 505px; width: 1000px; text-align: center; }
-  .badge { display: inline-block; margin: 0 12px; padding: 12px 30px; border-radius: 30px; background: #10224a; border: 2px solid #6fb7ff; font-family: 'Montserrat', Arial, sans-serif; font-weight: 700; font-size: 20px; color: #9cc9ff; }
+  .badge { position: absolute; top: 505px; width: 180px; height: 50px; padding-top: 12px; text-align: center; border-radius: 25px; background: #10224a; border: 2px solid #6fb7ff; font-family: 'Montserrat', Arial, sans-serif; font-weight: 700; font-size: 19px; color: #9cc9ff; }
   .footer-big { position: absolute; left: 0; top: 640px; width: 1366px; height: 128px; background: #081129; border-top: 2px solid #f5b82e; text-align: center; padding-top: 34px; }
   .footer-big p { font-size: 22px; color: #ffffff; }
   .footer-big p b { color: #f5b82e; }
@@ -81,7 +80,7 @@
 <!-- ============ PÁGINA 1: PORTADA ============ -->
 <section class="page" data-document-role="page" data-label="Portada">
   <div class="topbar"><div class="brand">PORTAFOLIO · SO</div>
-    <div class="nav"><span class="on">Inicio</span><span>¿Qué es un SO?</span><span>Componentes</span><span>Conclusión</span></div></div>
+    <div class="navi on" style="left:905px;">Inicio</div><div class="navi" style="left:975px;">¿Qué es un SO?</div><div class="navi" style="left:1108px;">Componentes</div><div class="navi" style="left:1225px;">Conclusión</div></div>
   <div class="circle-deco" style="left:820px; top:110px; width:540px; height:540px;"></div>
   <div class="circle-deco" style="left:-120px; top:560px; width:300px; height:300px;"></div>
   <div class="hero-kicker">Portafolio web · Taller 1.4</div>
@@ -89,17 +88,7 @@
   <div class="accent-bar hero-bar"></div>
   <div class="hero-author">Jhonatan Jara</div>
   <div class="hero-sub">Computación · UTPL · 2026</div>
-  <svg class="chip" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-    <rect x="50" y="50" width="100" height="100" rx="12" fill="#13254f" stroke="#f5b82e" stroke-width="4"/>
-    <rect x="72" y="72" width="56" height="56" rx="6" fill="#f5b82e"/>
-    <g stroke="#6fb7ff" stroke-width="4" stroke-linecap="round">
-      <line x1="70" y1="50" x2="70" y2="25"/><line x1="100" y1="50" x2="100" y2="25"/><line x1="130" y1="50" x2="130" y2="25"/>
-      <line x1="70" y1="150" x2="70" y2="175"/><line x1="100" y1="150" x2="100" y2="175"/><line x1="130" y1="150" x2="130" y2="175"/>
-      <line x1="50" y1="70" x2="25" y2="70"/><line x1="50" y1="100" x2="25" y2="100"/><line x1="50" y1="130" x2="25" y2="130"/>
-      <line x1="150" y1="70" x2="175" y2="70"/><line x1="150" y1="100" x2="175" y2="100"/><line x1="150" y1="130" x2="175" y2="130"/>
-    </g>
-    <text x="100" y="107" text-anchor="middle" font-family="Montserrat, Arial" font-weight="800" font-size="20" fill="#0b1630">SO</text>
-  </svg>
+  <img class="chip" src="https://jhonatanjj2006.github.io/portafolio-sistemas-operativos/icons/chip.png" alt="Chip con las letras SO">
   <div class="footer-line">Tema 1.4 · Sistemas Operativos</div>
   <div class="pagenum">01</div>
 </section>
@@ -107,7 +96,7 @@
 <!-- ============ PÁGINA 2: ¿QUÉ ES UN SO? ============ -->
 <section class="page" data-document-role="page" data-label="¿Qué es un sistema operativo?">
   <div class="topbar"><div class="brand">PORTAFOLIO · SO</div>
-    <div class="nav"><span>Inicio</span><span class="on">¿Qué es un SO?</span><span>Componentes</span><span>Conclusión</span></div></div>
+    <div class="navi" style="left:905px;">Inicio</div><div class="navi on" style="left:975px;">¿Qué es un SO?</div><div class="navi" style="left:1108px;">Componentes</div><div class="navi" style="left:1225px;">Conclusión</div></div>
   <div class="sec-kicker">Introducción</div>
   <h2 class="sec-title">¿Qué es un <b>sistema operativo</b>?</h2>
   <div class="accent-bar sec-bar"></div>
@@ -129,39 +118,39 @@
 <!-- ============ PÁGINA 3: COMPONENTES 1–5 ============ -->
 <section class="page" data-document-role="page" data-label="Componentes y funciones (1–5)">
   <div class="topbar"><div class="brand">PORTAFOLIO · SO</div>
-    <div class="nav"><span>Inicio</span><span>¿Qué es un SO?</span><span class="on">Componentes</span><span>Conclusión</span></div></div>
+    <div class="navi" style="left:905px;">Inicio</div><div class="navi" style="left:975px;">¿Qué es un SO?</div><div class="navi on" style="left:1108px;">Componentes</div><div class="navi" style="left:1225px;">Conclusión</div></div>
   <div class="sec-kicker" style="top:88px;">Componentes y funciones · Parte 1</div>
   <h2 class="sec-title" style="top:118px; font-size:40px;">Componentes del <b>sistema operativo</b></h2>
 
   <div class="card" style="left:60px; top:200px; width:400px; height:255px;">
-    <svg class="icon" viewBox="0 0 58 58"><circle cx="29" cy="29" r="12" fill="none" stroke="#f5b82e" stroke-width="4"/><circle cx="29" cy="29" r="4" fill="#f5b82e"/><g stroke="#6fb7ff" stroke-width="3"><line x1="29" y1="6" x2="29" y2="14"/><line x1="29" y1="44" x2="29" y2="52"/><line x1="6" y1="29" x2="14" y2="29"/><line x1="44" y1="29" x2="52" y2="29"/></g></svg>
+    <img class="icon" src="https://jhonatanjj2006.github.io/portafolio-sistemas-operativos/icons/kernel.png" alt="">
     <div class="num">01</div>
     <h3>Núcleo (Kernel)</h3>
-    <ul><li>Es el corazón del sistema operativo.</li><li>Controla directamente el hardware.</li><li>Atiende las llamadas al sistema y las interrupciones.</li></ul>
+    <div class="list"><div class="li"><div class="dot"></div><div class="lt">Es el corazón del sistema operativo.</div></div><div class="li"><div class="dot"></div><div class="lt">Controla directamente el hardware.</div></div><div class="li"><div class="dot"></div><div class="lt">Atiende las llamadas al sistema y las interrupciones.</div></div></div>
   </div>
   <div class="card" style="left:483px; top:200px; width:400px; height:255px;">
-    <svg class="icon" viewBox="0 0 58 58"><rect x="12" y="16" width="34" height="26" rx="4" fill="none" stroke="#6fb7ff" stroke-width="3"/><polyline points="17,34 24,26 30,31 40,21" fill="none" stroke="#f5b82e" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <img class="icon" src="https://jhonatanjj2006.github.io/portafolio-sistemas-operativos/icons/procesos.png" alt="">
     <div class="num">02</div>
     <h3>Gestión de procesos</h3>
-    <ul><li>Crea, suspende y elimina procesos.</li><li>Planifica el uso de la CPU.</li><li>Sincroniza y comunica procesos, y evita interbloqueos.</li></ul>
+    <div class="list"><div class="li"><div class="dot"></div><div class="lt">Crea, suspende y elimina procesos.</div></div><div class="li"><div class="dot"></div><div class="lt">Planifica el uso de la CPU.</div></div><div class="li"><div class="dot"></div><div class="lt">Sincroniza y comunica procesos, y evita interbloqueos.</div></div></div>
   </div>
   <div class="card" style="left:906px; top:200px; width:400px; height:255px;">
-    <svg class="icon" viewBox="0 0 58 58"><rect x="9" y="19" width="40" height="20" rx="3" fill="none" stroke="#6fb7ff" stroke-width="3"/><g fill="#f5b82e"><rect x="14" y="24" width="6" height="10"/><rect x="23" y="24" width="6" height="10"/><rect x="32" y="24" width="6" height="10"/></g><g stroke="#6fb7ff" stroke-width="3"><line x1="16" y1="39" x2="16" y2="45"/><line x1="29" y1="39" x2="29" y2="45"/><line x1="42" y1="39" x2="42" y2="45"/></g></svg>
+    <img class="icon" src="https://jhonatanjj2006.github.io/portafolio-sistemas-operativos/icons/memoria.png" alt="">
     <div class="num">03</div>
     <h3>Gestión de memoria principal</h3>
-    <ul><li>Asigna y libera la memoria RAM.</li><li>Controla qué partes de la memoria están en uso.</li><li>Maneja la memoria virtual (paginación y segmentación).</li></ul>
+    <div class="list"><div class="li"><div class="dot"></div><div class="lt">Asigna y libera la memoria RAM.</div></div><div class="li"><div class="dot"></div><div class="lt">Controla qué partes de la memoria están en uso.</div></div><div class="li"><div class="dot"></div><div class="lt">Maneja la memoria virtual (paginación y segmentación).</div></div></div>
   </div>
   <div class="card" style="left:271px; top:478px; width:400px; height:255px;">
-    <svg class="icon" viewBox="0 0 58 58"><ellipse cx="29" cy="17" rx="15" ry="6" fill="none" stroke="#6fb7ff" stroke-width="3"/><path d="M14 17 V41 C14 49 44 49 44 41 V17" fill="none" stroke="#6fb7ff" stroke-width="3"/><path d="M14 29 C14 37 44 37 44 29" fill="none" stroke="#f5b82e" stroke-width="3"/></svg>
+    <img class="icon" src="https://jhonatanjj2006.github.io/portafolio-sistemas-operativos/icons/almacenamiento.png" alt="">
     <div class="num">04</div>
     <h3>Gestión de almacenamiento secundario</h3>
-    <ul><li>Administra el espacio libre del disco.</li><li>Asigna espacio a los archivos.</li><li>Planifica las lecturas y escrituras en disco.</li></ul>
+    <div class="list"><div class="li"><div class="dot"></div><div class="lt">Administra el espacio libre del disco.</div></div><div class="li"><div class="dot"></div><div class="lt">Asigna espacio a los archivos.</div></div><div class="li"><div class="dot"></div><div class="lt">Planifica las lecturas y escrituras en disco.</div></div></div>
   </div>
   <div class="card" style="left:694px; top:478px; width:400px; height:255px;">
-    <svg class="icon" viewBox="0 0 58 58"><path d="M10 18 H24 L28 23 H48 V44 H10 Z" fill="none" stroke="#f5b82e" stroke-width="3" stroke-linejoin="round"/><line x1="17" y1="31" x2="41" y2="31" stroke="#6fb7ff" stroke-width="3"/><line x1="17" y1="37" x2="34" y2="37" stroke="#6fb7ff" stroke-width="3"/></svg>
+    <img class="icon" src="https://jhonatanjj2006.github.io/portafolio-sistemas-operativos/icons/archivos.png" alt="">
     <div class="num">05</div>
     <h3>Sistema de archivos</h3>
-    <ul><li>Crea, borra y organiza archivos y carpetas.</li><li>Gestiona nombres y rutas de acceso.</li><li>Permite realizar copias de seguridad.</li></ul>
+    <div class="list"><div class="li"><div class="dot"></div><div class="lt">Crea, borra y organiza archivos y carpetas.</div></div><div class="li"><div class="dot"></div><div class="lt">Gestiona nombres y rutas de acceso.</div></div><div class="li"><div class="dot"></div><div class="lt">Permite realizar copias de seguridad.</div></div></div>
   </div>
   <div class="pagenum">03</div>
 </section>
@@ -169,33 +158,33 @@
 <!-- ============ PÁGINA 4: COMPONENTES 6–9 ============ -->
 <section class="page" data-document-role="page" data-label="Componentes y funciones (6–9)">
   <div class="topbar"><div class="brand">PORTAFOLIO · SO</div>
-    <div class="nav"><span>Inicio</span><span>¿Qué es un SO?</span><span class="on">Componentes</span><span>Conclusión</span></div></div>
+    <div class="navi" style="left:905px;">Inicio</div><div class="navi" style="left:975px;">¿Qué es un SO?</div><div class="navi on" style="left:1108px;">Componentes</div><div class="navi" style="left:1225px;">Conclusión</div></div>
   <div class="sec-kicker" style="top:88px;">Componentes y funciones · Parte 2</div>
   <h2 class="sec-title" style="top:118px; font-size:40px;">Componentes del <b>sistema operativo</b></h2>
 
   <div class="card" style="left:60px; top:200px; width:613px; height:255px;">
-    <svg class="icon" viewBox="0 0 58 58"><rect x="9" y="14" width="40" height="24" rx="3" fill="none" stroke="#6fb7ff" stroke-width="3"/><line x1="22" y1="45" x2="36" y2="45" stroke="#6fb7ff" stroke-width="3"/><path d="M24 22 L32 26 L24 30 Z" fill="#f5b82e"/></svg>
+    <img class="icon" src="https://jhonatanjj2006.github.io/portafolio-sistemas-operativos/icons/es.png" alt="">
     <div class="num">06</div>
     <h3>Gestión de entrada/salida (E/S)</h3>
-    <ul><li>Controla los periféricos mediante controladores (drivers).</li><li>Usa búfer, caché y spooling para agilizar las operaciones.</li><li>Oculta al usuario los detalles del hardware.</li></ul>
+    <div class="list"><div class="li"><div class="dot"></div><div class="lt">Controla los periféricos mediante controladores (drivers).</div></div><div class="li"><div class="dot"></div><div class="lt">Usa búfer, caché y spooling para agilizar las operaciones.</div></div><div class="li"><div class="dot"></div><div class="lt">Oculta al usuario los detalles del hardware.</div></div></div>
   </div>
   <div class="card" style="left:693px; top:200px; width:613px; height:255px;">
-    <svg class="icon" viewBox="0 0 58 58"><path d="M29 8 L46 15 V28 C46 39 38 46 29 50 C20 46 12 39 12 28 V15 Z" fill="none" stroke="#6fb7ff" stroke-width="3" stroke-linejoin="round"/><polyline points="21,29 27,35 38,23" fill="none" stroke="#f5b82e" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <img class="icon" src="https://jhonatanjj2006.github.io/portafolio-sistemas-operativos/icons/seguridad.png" alt="">
     <div class="num">07</div>
     <h3>Protección y seguridad</h3>
-    <ul><li>Controla el acceso a archivos, memoria y CPU.</li><li>Autentica a los usuarios con contraseñas y permisos.</li><li>Protege el sistema contra ataques y errores.</li></ul>
+    <div class="list"><div class="li"><div class="dot"></div><div class="lt">Controla el acceso a archivos, memoria y CPU.</div></div><div class="li"><div class="dot"></div><div class="lt">Autentica a los usuarios con contraseñas y permisos.</div></div><div class="li"><div class="dot"></div><div class="lt">Protege el sistema contra ataques y errores.</div></div></div>
   </div>
   <div class="card" style="left:60px; top:478px; width:613px; height:255px;">
-    <svg class="icon" viewBox="0 0 58 58"><rect x="9" y="13" width="40" height="32" rx="4" fill="none" stroke="#6fb7ff" stroke-width="3"/><polyline points="16,24 22,29 16,34" fill="none" stroke="#f5b82e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><line x1="26" y1="35" x2="38" y2="35" stroke="#f5b82e" stroke-width="3" stroke-linecap="round"/></svg>
+    <img class="icon" src="https://jhonatanjj2006.github.io/portafolio-sistemas-operativos/icons/interfaz.png" alt="">
     <div class="num">08</div>
     <h3>Interfaz de usuario e intérprete de comandos</h3>
-    <ul><li>Ofrece una interfaz gráfica (GUI) o de línea de comandos (shell).</li><li>Interpreta y ejecuta las órdenes del usuario.</li></ul>
+    <div class="list"><div class="li"><div class="dot"></div><div class="lt">Ofrece una interfaz gráfica (GUI) o de línea de comandos (shell).</div></div><div class="li"><div class="dot"></div><div class="lt">Interpreta y ejecuta las órdenes del usuario.</div></div></div>
   </div>
   <div class="card" style="left:693px; top:478px; width:613px; height:255px;">
-    <svg class="icon" viewBox="0 0 58 58"><g stroke="#6fb7ff" stroke-width="3"><line x1="29" y1="18" x2="15" y2="40"/><line x1="29" y1="18" x2="43" y2="40"/><line x1="15" y1="40" x2="43" y2="40"/></g><circle cx="29" cy="16" r="6" fill="#f5b82e"/><circle cx="14" cy="41" r="6" fill="#f5b82e"/><circle cx="44" cy="41" r="6" fill="#f5b82e"/></svg>
+    <img class="icon" src="https://jhonatanjj2006.github.io/portafolio-sistemas-operativos/icons/redes.png" alt="">
     <div class="num">09</div>
     <h3>Comunicaciones y redes</h3>
-    <ul><li>Permite compartir recursos e información entre computadoras.</li><li>Conecta el equipo con otros sistemas a través de la red.</li></ul>
+    <div class="list"><div class="li"><div class="dot"></div><div class="lt">Permite compartir recursos e información entre computadoras.</div></div><div class="li"><div class="dot"></div><div class="lt">Conecta el equipo con otros sistemas a través de la red.</div></div></div>
   </div>
   <div class="pagenum">04</div>
 </section>
@@ -203,13 +192,13 @@
 <!-- ============ PÁGINA 5: CONCLUSIÓN ============ -->
 <section class="page" data-document-role="page" data-label="Conclusión">
   <div class="topbar"><div class="brand">PORTAFOLIO · SO</div>
-    <div class="nav"><span>Inicio</span><span>¿Qué es un SO?</span><span>Componentes</span><span class="on">Conclusión</span></div></div>
+    <div class="navi" style="left:905px;">Inicio</div><div class="navi" style="left:975px;">¿Qué es un SO?</div><div class="navi" style="left:1108px;">Componentes</div><div class="navi on" style="left:1225px;">Conclusión</div></div>
   <div class="circle-deco" style="left:1080px; top:90px; width:360px; height:360px;"></div>
   <div class="sec-kicker">Cierre</div>
   <h2 class="sec-title"><b>Conclusión</b></h2>
   <div class="accent-bar sec-bar"></div>
   <div class="concl-box"><p>Todos los componentes trabajan juntos para que la computadora sea <b>eficiente</b>, <b>segura</b> y <b>fácil de usar</b>.</p></div>
-  <div class="badges"><span class="badge">Eficiente</span><span class="badge">Segura</span><span class="badge">Fácil de usar</span></div>
+  <div class="badge" style="left:393px;">Eficiente</div><div class="badge" style="left:603px;">Segura</div><div class="badge" style="left:813px;">Fácil de usar</div>
   <div class="footer-big">
     <p>Elaborado por <b>Jhonatan Jara</b> · Computación · UTPL · 2026</p>
     <small>Taller 1.4 · Funciones de los componentes de un Sistema Operativo</small>
