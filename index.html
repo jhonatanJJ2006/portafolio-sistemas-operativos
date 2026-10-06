@@ -8,98 +8,90 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { background: #050c1c; font-family: 'Open Sans', Arial, sans-serif; color: #eaf1ff; }
-  .page {
-    position: relative; width: 1366px; height: 768px; margin: 0 auto 24px auto; overflow: hidden;
-    background: #0b1630;
-    background-image: linear-gradient(135deg, #0b1630 0%, #0f1f45 60%, #0b1630 100%);
-  }
-  h1, h2, h3, .kicker, .num { font-family: 'Montserrat', Arial, sans-serif; }
-  .topbar { position: absolute; left: 0; top: 0; width: 1366px; height: 64px; background: #081129; border-bottom: 2px solid #f5b82e; }
-  .brand { position: absolute; left: 60px; top: 20px; font-family: 'Montserrat', Arial, sans-serif; font-weight: 800; font-size: 18px; color: #f5b82e; letter-spacing: 1px; }
-  .navi { position: absolute; top: 22px; font-size: 15px; color: #9cc9ff; white-space: nowrap; }
+  body { background: #0b1630; font-family: 'Open Sans', Arial, sans-serif; color: #eaf1ff; }
+  .page { position: relative; width: 1366px; margin: 0 auto; overflow: hidden; background: #0b1630; }
+  h1, h2, h3 { font-family: 'Montserrat', Arial, sans-serif; }
+  .header { position: absolute; left: 0; top: 0; width: 1366px; height: 72px; background: #081129; border-bottom: 2px solid #f5b82e; }
+  .brand { position: absolute; left: 60px; top: 24px; font-family: 'Montserrat', Arial, sans-serif; font-weight: 800; font-size: 19px; color: #f5b82e; letter-spacing: 1px; white-space: nowrap; }
+  .navi { position: absolute; top: 25px; font-size: 16px; color: #cfe3ff; white-space: nowrap; }
   .navi.on { color: #f5b82e; font-weight: 600; }
-  .accent-bar { width: 90px; height: 6px; background: #f5b82e; border-radius: 3px; }
-  .footer-line { position: absolute; left: 60px; bottom: 28px; font-size: 14px; color: #9cc9ff; }
-  .pagenum { position: absolute; right: 60px; bottom: 26px; font-family: 'Montserrat', Arial, sans-serif; font-size: 15px; color: #f5b82e; font-weight: 700; }
-  .circle-deco { position: absolute; border-radius: 50%; border: 2px solid #1e3a72; }
+  .accent-bar { position: absolute; width: 90px; height: 6px; background: #f5b82e; border-radius: 3px; }
+  .circle-deco { position: absolute; border-radius: 50%; border: 2px solid #1a3366; }
+  .glow { position: absolute; border-radius: 50%; background: #10224a; }
 
-  /* Portada */
-  .hero-kicker { position: absolute; left: 100px; top: 170px; font-size: 20px; font-weight: 700; color: #6fb7ff; letter-spacing: 3px; text-transform: uppercase; }
-  .hero-title { position: absolute; left: 100px; top: 215px; width: 760px; font-size: 58px; line-height: 68px; font-weight: 800; color: #ffffff; }
+  .hero-kicker { position: absolute; left: 100px; top: 200px; font-size: 20px; font-weight: 700; color: #6fb7ff; letter-spacing: 3px; text-transform: uppercase; white-space: nowrap; }
+  .hero-title { position: absolute; left: 100px; top: 245px; width: 760px; font-size: 58px; line-height: 68px; font-weight: 800; color: #ffffff; }
   .hero-title b { color: #f5b82e; }
-  .hero-bar { position: absolute; left: 100px; top: 520px; }
-  .hero-author { position: absolute; left: 100px; top: 548px; font-family: 'Montserrat', Arial, sans-serif; font-size: 32px; font-weight: 700; color: #f5b82e; }
-  .hero-sub { position: absolute; left: 100px; top: 596px; font-size: 22px; color: #d6e4ff; }
-  .chip { position: absolute; width: 380px; height: 380px; left: 900px; top: 190px; }
+  .hero-author { position: absolute; left: 100px; top: 545px; font-family: 'Montserrat', Arial, sans-serif; font-size: 40px; font-weight: 800; color: #f5b82e; white-space: nowrap; }
+  .hero-sub { position: absolute; left: 100px; top: 602px; font-size: 22px; color: #d6e4ff; white-space: nowrap; }
+  .btn { position: absolute; height: 54px; padding-top: 14px; text-align: center; border-radius: 27px; font-family: 'Montserrat', Arial, sans-serif; font-weight: 700; font-size: 18px; white-space: nowrap; }
+  .btn.primary { background: #f5b82e; color: #0b1630; }
+  .btn.ghost { border: 2px solid #6fb7ff; color: #9cc9ff; padding-top: 12px; }
+  .chip { position: absolute; width: 380px; height: 380px; left: 900px; top: 210px; }
 
-  /* Sección general */
-  .sec-kicker { position: absolute; left: 100px; top: 110px; font-size: 18px; font-weight: 700; color: #6fb7ff; letter-spacing: 3px; text-transform: uppercase; }
-  .sec-title { position: absolute; left: 100px; top: 142px; font-size: 46px; font-weight: 800; color: #ffffff; }
+  .sec-kicker { position: absolute; left: 100px; font-size: 18px; font-weight: 700; color: #6fb7ff; letter-spacing: 3px; text-transform: uppercase; white-space: nowrap; }
+  .sec-title { position: absolute; left: 100px; font-size: 46px; font-weight: 800; color: #ffffff; white-space: nowrap; }
   .sec-title b { color: #f5b82e; }
-  .sec-bar { position: absolute; left: 100px; top: 210px; }
+  .sec-lead { position: absolute; left: 100px; width: 1000px; font-size: 19px; line-height: 28px; color: #cfe3ff; }
+  .divider { position: absolute; left: 100px; top: 0; width: 1166px; height: 1px; background: #1e3a72; }
 
-  /* Página 2 */
-  .def-box { position: absolute; left: 100px; top: 250px; width: 700px; height: 250px; background: #13254f; border-left: 8px solid #f5b82e; border-radius: 14px; padding: 36px 40px; }
+  .def-box { position: absolute; left: 100px; top: 220px; width: 700px; height: 250px; background: #13254f; border-left: 8px solid #f5b82e; border-radius: 14px; padding: 36px 40px; }
   .def-box p { font-size: 27px; line-height: 42px; color: #ffffff; }
   .def-box p b { color: #f5b82e; }
-  .goals-title { position: absolute; left: 100px; top: 530px; font-family: 'Montserrat', Arial, sans-serif; font-size: 22px; font-weight: 700; color: #9cc9ff; }
-  .goal { position: absolute; top: 572px; width: 216px; height: 110px; background: #10224a; border: 2px solid #2b6cd4; border-radius: 14px; padding: 16px 18px; }
+  .goals-title { position: absolute; left: 100px; top: 500px; font-family: 'Montserrat', Arial, sans-serif; font-size: 22px; font-weight: 700; color: #9cc9ff; white-space: nowrap; }
+  .goal { position: absolute; top: 542px; width: 216px; height: 112px; background: #10224a; border: 2px solid #2b6cd4; border-radius: 14px; padding: 16px 18px; }
   .goal h3 { font-size: 21px; color: #f5b82e; margin-bottom: 6px; }
   .goal p { font-size: 15px; line-height: 21px; color: #e3ecff; }
-  .layers { position: absolute; left: 870px; top: 240px; width: 400px; }
+  .layers { position: absolute; left: 870px; top: 215px; width: 400px; }
   .layer { width: 400px; height: 76px; border-radius: 12px; margin-bottom: 14px; text-align: center; padding-top: 22px; font-family: 'Montserrat', Arial, sans-serif; font-weight: 700; font-size: 22px; }
-  .l1 { background: #1d3d7a; color: #ffffff; }
-  .l2 { background: #2b6cd4; color: #ffffff; }
-  .l3 { background: #f5b82e; color: #0b1630; }
-  .l4 { background: #36507f; color: #ffffff; }
+  .l1 { background: #1d3d7a; color: #ffffff; } .l2 { background: #2b6cd4; color: #ffffff; }
+  .l3 { background: #f5b82e; color: #0b1630; } .l4 { background: #36507f; color: #ffffff; }
+  .layers-cap { position: absolute; left: 870px; top: 580px; width: 400px; text-align: center; font-size: 15px; color: #9cc9ff; }
 
-  /* Tarjetas */
-  .card { position: absolute; background: #12234b; border: 2px solid #22427f; border-top: 6px solid #f5b82e; border-radius: 16px; padding: 22px 24px; }
+  .card { position: absolute; width: 400px; height: 300px; background: #12234b; border: 2px solid #22427f; border-top: 6px solid #f5b82e; border-radius: 16px; padding: 22px 24px; }
   .card .icon { position: absolute; left: 24px; top: 22px; width: 58px; height: 58px; }
-  .card .num { position: absolute; right: 22px; top: 18px; font-size: 30px; font-weight: 800; color: #2f5aa8; }
-  .card h3 { margin-left: 74px; margin-top: 2px; min-height: 58px; font-size: 21px; line-height: 27px; color: #ffffff; padding-right: 52px; }
-  .card .list { margin-top: 12px; }
-  .card .li { display: flex; align-items: flex-start; margin-bottom: 7px; }
+  .card h3 { margin-left: 74px; margin-top: 2px; min-height: 58px; font-size: 21px; line-height: 27px; color: #ffffff; }
+  .card .list { margin-top: 14px; }
+  .card .li { display: flex; align-items: flex-start; margin-bottom: 8px; }
   .card .dot { flex: 0 0 9px; width: 9px; height: 9px; margin-top: 7px; margin-right: 11px; border-radius: 50%; background: #f5b82e; }
   .card .lt { flex: 1; font-size: 16px; line-height: 23px; color: #e3ecff; }
 
-  /* Conclusión */
-  .concl-box { position: absolute; left: 183px; top: 250px; width: 1000px; height: 220px; background: #13254f; border: 2px solid #f5b82e; border-radius: 20px; padding: 44px 60px; text-align: center; }
+  .concl-box { position: absolute; left: 183px; top: 200px; width: 1000px; height: 200px; background: #13254f; border: 2px solid #f5b82e; border-radius: 20px; padding: 40px 60px; text-align: center; }
   .concl-box p { font-size: 32px; line-height: 48px; color: #ffffff; font-weight: 600; }
   .concl-box p b { color: #f5b82e; }
-  .badge { position: absolute; top: 505px; width: 180px; height: 50px; padding-top: 12px; text-align: center; border-radius: 25px; background: #10224a; border: 2px solid #6fb7ff; font-family: 'Montserrat', Arial, sans-serif; font-weight: 700; font-size: 19px; color: #9cc9ff; }
-  .footer-big { position: absolute; left: 0; top: 640px; width: 1366px; height: 128px; background: #081129; border-top: 2px solid #f5b82e; text-align: center; padding-top: 34px; }
-  .footer-big p { font-size: 22px; color: #ffffff; }
-  .footer-big p b { color: #f5b82e; }
-  .footer-big small { display: block; margin-top: 8px; font-size: 15px; color: #9cc9ff; }
+  .badge { position: absolute; top: 435px; width: 180px; height: 50px; padding-top: 12px; text-align: center; border-radius: 25px; background: #10224a; border: 2px solid #6fb7ff; font-family: 'Montserrat', Arial, sans-serif; font-weight: 700; font-size: 19px; color: #9cc9ff; white-space: nowrap; }
+  .footer { position: absolute; left: 0; top: 560px; width: 1366px; height: 140px; background: #081129; border-top: 2px solid #f5b82e; }
+  .footer-main { position: absolute; left: 0; top: 40px; width: 1366px; text-align: center; font-size: 22px; color: #ffffff; }
+  .footer-main b { color: #f5b82e; }
+  .footer-sub { position: absolute; left: 0; top: 80px; width: 1366px; text-align: center; font-size: 15px; color: #9cc9ff; }
 </style>
 </head>
 <body>
 
-<!-- ============ PÁGINA 1: PORTADA ============ -->
-<section class="page" data-document-role="page" data-label="Portada">
-  <div class="topbar"><div class="brand">PORTAFOLIO · SO</div>
-    <div class="navi on" style="left:895px;">Inicio</div><div class="navi" style="left:955px;">¿Qué es un SO?</div><div class="navi" style="left:1088px;">Componentes</div><div class="navi" style="left:1218px;">Conclusión</div></div>
-  <div class="circle-deco" style="left:820px; top:110px; width:540px; height:540px;"></div>
-  <div class="circle-deco" style="left:-120px; top:560px; width:300px; height:300px;"></div>
+<section class="page" style="height:800px;" data-document-role="page" data-label="Inicio">
+  <div class="header"></div>
+  <div class="brand">PORTAFOLIO · SO</div>
+  <div class="navi on" style="left:870px;">Inicio</div>
+  <div class="navi" style="left:940px;">¿Qué es un SO?</div>
+  <div class="navi" style="left:1080px;">Componentes</div>
+  <div class="navi" style="left:1212px;">Conclusión</div>
+  <div class="circle-deco" style="left:820px; top:130px; width:540px; height:540px;"></div>
+  <div class="circle-deco" style="left:-140px; top:620px; width:320px; height:320px;"></div>
   <div class="hero-kicker">Portafolio web · Taller 1.4</div>
   <h1 class="hero-title">Funciones de los componentes de un <b>Sistema Operativo</b></h1>
-  <div class="accent-bar hero-bar"></div>
+  <div class="accent-bar" style="left:100px; top:520px;"></div>
   <div class="hero-author">Jhonatan Jara</div>
   <div class="hero-sub">Computación · UTPL · 2026</div>
+  <div class="btn primary" style="left:100px; top:670px; width:230px;">Ver componentes</div>
+  <div class="btn ghost" style="left:350px; top:670px; width:230px;">¿Qué es un SO?</div>
   <img class="chip" src="https://jhonatanjj2006.github.io/portafolio-sistemas-operativos/icons/chip.png" alt="Chip con las letras SO">
-  <div class="footer-line">Tema 1.4 · Sistemas Operativos</div>
-  <div class="pagenum">01</div>
 </section>
 
-<!-- ============ PÁGINA 2: ¿QUÉ ES UN SO? ============ -->
-<section class="page" data-document-role="page" data-label="¿Qué es un sistema operativo?">
-  <div class="topbar"><div class="brand">PORTAFOLIO · SO</div>
-    <div class="navi" style="left:895px;">Inicio</div><div class="navi on" style="left:955px;">¿Qué es un SO?</div><div class="navi" style="left:1088px;">Componentes</div><div class="navi" style="left:1218px;">Conclusión</div></div>
-  <div class="sec-kicker">Introducción</div>
-  <h2 class="sec-title">¿Qué es un <b>sistema operativo</b>?</h2>
-  <div class="accent-bar sec-bar"></div>
+<section class="page" style="height:720px;" data-document-role="page" data-label="¿Qué es un SO?">
+  <div class="divider"></div>
+  <div class="sec-kicker" style="top:70px;">Introducción</div>
+  <h2 class="sec-title" style="top:102px;">¿Qué es un <b>sistema operativo</b>?</h2>
+  <div class="accent-bar" style="left:100px; top:172px;"></div>
   <div class="def-box"><p>El sistema operativo es el <b>software que administra el hardware</b> y sirve de intermediario entre el usuario, las aplicaciones y la computadora.</p></div>
   <div class="goals-title">Sus objetivos principales:</div>
   <div class="goal" style="left:100px;"><h3>Eficiencia</h3><p>Aprovecha al máximo los recursos del equipo.</p></div>
@@ -111,97 +103,76 @@
     <div class="layer l3">Sistema operativo</div>
     <div class="layer l4">Hardware</div>
   </div>
-  <div class="footer-line">Jhonatan Jara · Computación · UTPL</div>
-  <div class="pagenum">02</div>
+  <div class="layers-cap">El SO actúa como intermediario entre el usuario y el hardware.</div>
 </section>
 
-<!-- ============ PÁGINA 3: COMPONENTES 1–5 ============ -->
-<section class="page" data-document-role="page" data-label="Componentes y funciones (1–5)">
-  <div class="topbar"><div class="brand">PORTAFOLIO · SO</div>
-    <div class="navi" style="left:895px;">Inicio</div><div class="navi" style="left:955px;">¿Qué es un SO?</div><div class="navi on" style="left:1088px;">Componentes</div><div class="navi" style="left:1218px;">Conclusión</div></div>
-  <div class="sec-kicker" style="top:88px;">Componentes y funciones · Parte 1</div>
-  <h2 class="sec-title" style="top:118px; font-size:40px;">Componentes del <b>sistema operativo</b></h2>
+<section class="page" style="height:1286px;" data-document-role="page" data-label="Componentes">
+  <div class="divider"></div>
+  <div class="sec-kicker" style="top:70px;">Componentes y funciones</div>
+  <h2 class="sec-title" style="top:102px;">Componentes del <b>sistema operativo</b></h2>
+  <div class="accent-bar" style="left:100px; top:172px;"></div>
+  <div class="sec-lead" style="top:192px;">Cada componente cumple funciones específicas para administrar los recursos de la computadora.</div>
 
-  <div class="card" style="left:60px; top:200px; width:400px; height:255px;">
+  <div class="card" style="left:60px; top:250px;">
     <img class="icon" src="https://jhonatanjj2006.github.io/portafolio-sistemas-operativos/icons/kernel.png" alt="">
-    <div class="num">01</div>
     <h3>Núcleo (Kernel)</h3>
     <div class="list"><div class="li"><div class="dot"></div><div class="lt">Es el corazón del sistema operativo.</div></div><div class="li"><div class="dot"></div><div class="lt">Controla directamente el hardware.</div></div><div class="li"><div class="dot"></div><div class="lt">Atiende las llamadas al sistema y las interrupciones.</div></div></div>
   </div>
-  <div class="card" style="left:483px; top:200px; width:400px; height:255px;">
+  <div class="card" style="left:483px; top:250px;">
     <img class="icon" src="https://jhonatanjj2006.github.io/portafolio-sistemas-operativos/icons/procesos.png" alt="">
-    <div class="num">02</div>
     <h3>Gestión de procesos</h3>
     <div class="list"><div class="li"><div class="dot"></div><div class="lt">Crea, suspende y elimina procesos.</div></div><div class="li"><div class="dot"></div><div class="lt">Planifica el uso de la CPU.</div></div><div class="li"><div class="dot"></div><div class="lt">Sincroniza y comunica procesos, y evita interbloqueos.</div></div></div>
   </div>
-  <div class="card" style="left:906px; top:200px; width:400px; height:255px;">
+  <div class="card" style="left:906px; top:250px;">
     <img class="icon" src="https://jhonatanjj2006.github.io/portafolio-sistemas-operativos/icons/memoria.png" alt="">
-    <div class="num">03</div>
     <h3>Gestión de memoria principal</h3>
     <div class="list"><div class="li"><div class="dot"></div><div class="lt">Asigna y libera la memoria RAM.</div></div><div class="li"><div class="dot"></div><div class="lt">Controla qué partes de la memoria están en uso.</div></div><div class="li"><div class="dot"></div><div class="lt">Maneja la memoria virtual (paginación y segmentación).</div></div></div>
   </div>
-  <div class="card" style="left:271px; top:478px; width:400px; height:255px;">
+  <div class="card" style="left:60px; top:573px;">
     <img class="icon" src="https://jhonatanjj2006.github.io/portafolio-sistemas-operativos/icons/almacenamiento.png" alt="">
-    <div class="num">04</div>
     <h3>Gestión de almacenamiento secundario</h3>
     <div class="list"><div class="li"><div class="dot"></div><div class="lt">Administra el espacio libre del disco.</div></div><div class="li"><div class="dot"></div><div class="lt">Asigna espacio a los archivos.</div></div><div class="li"><div class="dot"></div><div class="lt">Planifica las lecturas y escrituras en disco.</div></div></div>
   </div>
-  <div class="card" style="left:694px; top:478px; width:400px; height:255px;">
+  <div class="card" style="left:483px; top:573px;">
     <img class="icon" src="https://jhonatanjj2006.github.io/portafolio-sistemas-operativos/icons/archivos.png" alt="">
-    <div class="num">05</div>
     <h3>Sistema de archivos</h3>
     <div class="list"><div class="li"><div class="dot"></div><div class="lt">Crea, borra y organiza archivos y carpetas.</div></div><div class="li"><div class="dot"></div><div class="lt">Gestiona nombres y rutas de acceso.</div></div><div class="li"><div class="dot"></div><div class="lt">Permite realizar copias de seguridad.</div></div></div>
   </div>
-  <div class="pagenum">03</div>
-</section>
-
-<!-- ============ PÁGINA 4: COMPONENTES 6–9 ============ -->
-<section class="page" data-document-role="page" data-label="Componentes y funciones (6–9)">
-  <div class="topbar"><div class="brand">PORTAFOLIO · SO</div>
-    <div class="navi" style="left:895px;">Inicio</div><div class="navi" style="left:955px;">¿Qué es un SO?</div><div class="navi on" style="left:1088px;">Componentes</div><div class="navi" style="left:1218px;">Conclusión</div></div>
-  <div class="sec-kicker" style="top:88px;">Componentes y funciones · Parte 2</div>
-  <h2 class="sec-title" style="top:118px; font-size:40px;">Componentes del <b>sistema operativo</b></h2>
-
-  <div class="card" style="left:60px; top:200px; width:613px; height:255px;">
+  <div class="card" style="left:906px; top:573px;">
     <img class="icon" src="https://jhonatanjj2006.github.io/portafolio-sistemas-operativos/icons/es.png" alt="">
-    <div class="num">06</div>
     <h3>Gestión de entrada/salida (E/S)</h3>
     <div class="list"><div class="li"><div class="dot"></div><div class="lt">Controla los periféricos mediante controladores (drivers).</div></div><div class="li"><div class="dot"></div><div class="lt">Usa búfer, caché y spooling para agilizar las operaciones.</div></div><div class="li"><div class="dot"></div><div class="lt">Oculta al usuario los detalles del hardware.</div></div></div>
   </div>
-  <div class="card" style="left:693px; top:200px; width:613px; height:255px;">
+  <div class="card" style="left:60px; top:896px;">
     <img class="icon" src="https://jhonatanjj2006.github.io/portafolio-sistemas-operativos/icons/seguridad.png" alt="">
-    <div class="num">07</div>
     <h3>Protección y seguridad</h3>
     <div class="list"><div class="li"><div class="dot"></div><div class="lt">Controla el acceso a archivos, memoria y CPU.</div></div><div class="li"><div class="dot"></div><div class="lt">Autentica a los usuarios con contraseñas y permisos.</div></div><div class="li"><div class="dot"></div><div class="lt">Protege el sistema contra ataques y errores.</div></div></div>
   </div>
-  <div class="card" style="left:60px; top:478px; width:613px; height:255px;">
+  <div class="card" style="left:483px; top:896px;">
     <img class="icon" src="https://jhonatanjj2006.github.io/portafolio-sistemas-operativos/icons/interfaz.png" alt="">
-    <div class="num">08</div>
     <h3>Interfaz de usuario e intérprete de comandos</h3>
     <div class="list"><div class="li"><div class="dot"></div><div class="lt">Ofrece una interfaz gráfica (GUI) o de línea de comandos (shell).</div></div><div class="li"><div class="dot"></div><div class="lt">Interpreta y ejecuta las órdenes del usuario.</div></div></div>
   </div>
-  <div class="card" style="left:693px; top:478px; width:613px; height:255px;">
+  <div class="card" style="left:906px; top:896px;">
     <img class="icon" src="https://jhonatanjj2006.github.io/portafolio-sistemas-operativos/icons/redes.png" alt="">
-    <div class="num">09</div>
     <h3>Comunicaciones y redes</h3>
     <div class="list"><div class="li"><div class="dot"></div><div class="lt">Permite compartir recursos e información entre computadoras.</div></div><div class="li"><div class="dot"></div><div class="lt">Conecta el equipo con otros sistemas a través de la red.</div></div></div>
   </div>
-  <div class="pagenum">04</div>
 </section>
 
-<!-- ============ PÁGINA 5: CONCLUSIÓN ============ -->
-<section class="page" data-document-role="page" data-label="Conclusión">
-  <div class="topbar"><div class="brand">PORTAFOLIO · SO</div>
-    <div class="navi" style="left:895px;">Inicio</div><div class="navi" style="left:955px;">¿Qué es un SO?</div><div class="navi" style="left:1088px;">Componentes</div><div class="navi on" style="left:1218px;">Conclusión</div></div>
-  <div class="circle-deco" style="left:1080px; top:90px; width:360px; height:360px;"></div>
-  <div class="sec-kicker">Cierre</div>
-  <h2 class="sec-title"><b>Conclusión</b></h2>
-  <div class="accent-bar sec-bar"></div>
+<section class="page" style="height:700px;" data-document-role="page" data-label="Conclusión">
+  <div class="divider"></div>
+  <div class="circle-deco" style="left:1080px; top:40px; width:360px; height:360px;"></div>
+  <div class="sec-kicker" style="top:70px;">Cierre</div>
+  <h2 class="sec-title" style="top:102px;"><b>Conclusión</b></h2>
+  <div class="accent-bar" style="left:100px; top:172px;"></div>
   <div class="concl-box"><p>Todos los componentes trabajan juntos para que la computadora sea <b>eficiente</b>, <b>segura</b> y <b>fácil de usar</b>.</p></div>
-  <div class="badge" style="left:393px;">Eficiente</div><div class="badge" style="left:603px;">Segura</div><div class="badge" style="left:813px;">Fácil de usar</div>
-  <div class="footer-big">
-    <p>Elaborado por <b>Jhonatan Jara</b> · Computación · UTPL · 2026</p>
-    <small>Taller 1.4 · Funciones de los componentes de un Sistema Operativo</small>
+  <div class="badge" style="left:393px;">Eficiente</div>
+  <div class="badge" style="left:603px;">Segura</div>
+  <div class="badge" style="left:813px;">Fácil de usar</div>
+  <div class="footer">
+    <div class="footer-main">Elaborado por <b>Jhonatan Jara</b> · Computación · UTPL · 2026</div>
+    <div class="footer-sub">Taller 1.4 · Funciones de los componentes de un Sistema Operativo</div>
   </div>
 </section>
 
