@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Evolución de los Sistemas Operativos · Jhonatan Jara</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #0b1630; font-family: 'Open Sans', Arial, sans-serif; color: #eaf1ff; }
+  .page { position: relative; width: 1366px; margin: 0 auto; overflow: hidden; background: #0b1630; }
+  h1, h2, h3 { font-family: 'Montserrat', Arial, sans-serif; }
+  .header { position: absolute; left: 0; top: 0; width: 1366px; height: 72px; background: #081129; border-bottom: 2px solid #f5b82e; }
+  .brand { position: absolute; left: 60px; top: 24px; font-family: 'Montserrat', Arial, sans-serif; font-weight: 800; font-size: 19px; color: #f5b82e; letter-spacing: 1px; white-space: nowrap; }
+  .navi { position: absolute; top: 25px; font-size: 16px; color: #cfe3ff; white-space: nowrap; }
+  .navi.on { color: #f5b82e; font-weight: 600; }
+  .accent-bar { position: absolute; width: 90px; height: 6px; background: #f5b82e; border-radius: 3px; }
+  .circle-deco { position: absolute; border-radius: 50%; border: 2px solid #1a3366; }
+  .glow { position: absolute; border-radius: 50%; background: #10224a; }
+
+  .hero-kicker { position: absolute; left: 100px; top: 200px; font-size: 20px; font-weight: 700; color: #6fb7ff; letter-spacing: 3px; text-transform: uppercase; white-space: nowrap; }
+  .hero-title { position: absolute; left: 100px; top: 245px; width: 760px; font-size: 58px; line-height: 68px; font-weight: 800; color: #ffffff; }
+  .hero-title b { color: #f5b82e; }
+  .hero-author { position: absolute; left: 100px; top: 545px; font-family: 'Montserrat', Arial, sans-serif; font-size: 40px; font-weight: 800; color: #f5b82e; white-space: nowrap; }
+  .hero-sub { position: absolute; left: 100px; top: 602px; font-size: 22px; color: #d6e4ff; white-space: nowrap; }
+  .btn { position: absolute; height: 54px; padding-top: 14px; text-align: center; border-radius: 27px; font-family: 'Montserrat', Arial, sans-serif; font-weight: 700; font-size: 18px; white-space: nowrap; }
+  .btn.primary { background: #f5b82e; color: #0b1630; }
+  .btn.ghost { border: 2px solid #6fb7ff; color: #9cc9ff; padding-top: 12px; }
+  .chip { position: absolute; width: 380px; height: 380px; left: 900px; top: 210px; }
+
+  .sec-kicker { position: absolute; left: 100px; font-size: 18px; font-weight: 700; color: #6fb7ff; letter-spacing: 3px; text-transform: uppercase; white-space: nowrap; }
+  .sec-title { position: absolute; left: 100px; font-size: 46px; font-weight: 800; color: #ffffff; white-space: nowrap; }
+  .sec-title b { color: #f5b82e; }
+  .sec-lead { position: absolute; left: 100px; width: 1000px; font-size: 19px; line-height: 28px; color: #cfe3ff; }
+  .divider { position: absolute; left: 100px; top: 0; width: 1166px; height: 1px; background: #1e3a72; }
+
+  .def-box { position: absolute; left: 100px; top: 220px; width: 700px; height: 250px; background: #13254f; border-left: 8px solid #f5b82e; border-radius: 14px; padding: 36px 40px; }
+  .def-box p { font-size: 27px; line-height: 42px; color: #ffffff; }
+  .def-box p b { color: #f5b82e; }
+  .goals-title { position: absolute; left: 100px; top: 500px; font-family: 'Montserrat', Arial, sans-serif; font-size: 22px; font-weight: 700; color: #9cc9ff; white-space: nowrap; }
+  .goal { position: absolute; top: 542px; width: 216px; height: 112px; background: #10224a; border: 2px solid #2b6cd4; border-radius: 14px; padding: 16px 18px; }
+  .goal h3 { font-size: 21px; color: #f5b82e; margin-bottom: 6px; }
+  .goal p { font-size: 15px; line-height: 21px; color: #e3ecff; }
+  .layers { position: absolute; left: 870px; top: 215px; width: 400px; }
+  .layer { width: 400px; height: 76px; border-radius: 12px; margin-bottom: 14px; text-align: center; padding-top: 22px; font-family: 'Montserrat', Arial, sans-serif; font-weight: 700; font-size: 22px; }
+  .l1 { background: #1d3d7a; color: #ffffff; } .l2 { background: #2b6cd4; color: #ffffff; }
+  .l3 { background: #f5b82e; color: #0b1630; } .l4 { background: #36507f; color: #ffffff; }
+  .layers-cap { position: absolute; left: 870px; top: 580px; width: 400px; text-align: center; font-size: 15px; color: #9cc9ff; }
+
+  .card { position: absolute; width: 400px; height: 300px; background: #12234b; border: 2px solid #22427f; border-top: 6px solid #f5b82e; border-radius: 16px; padding: 22px 24px; }
+  .card .icon { position: absolute; left: 24px; top: 22px; width: 58px; height: 58px; }
+  .card h3 { margin-left: 74px; margin-top: 2px; min-height: 58px; font-size: 21px; line-height: 27px; color: #ffffff; }
+  .card .list { margin-top: 14px; }
+  .card .li { display: flex; align-items: flex-start; margin-bottom: 8px; }
+  .card .dot { flex: 0 0 9px; width: 9px; height: 9px; margin-top: 7px; margin-right: 11px; border-radius: 50%; background: #f5b82e; }
+  .card .lt { flex: 1; font-size: 16px; line-height: 23px; color: #e3ecff; }
+
+  .concl-box { position: absolute; left: 183px; top: 200px; width: 1000px; height: 200px; background: #13254f; border: 2px solid #f5b82e; border-radius: 20px; padding: 40px 60px; text-align: center; }
+  .concl-box p { font-size: 32px; line-height: 48px; color: #ffffff; font-weight: 600; }
+  .concl-box p b { color: #f5b82e; }
+  .badge { position: absolute; top: 435px; width: 180px; height: 50px; padding-top: 12px; text-align: center; border-radius: 25px; background: #10224a; border: 2px solid #6fb7ff; font-family: 'Montserrat', Arial, sans-serif; font-weight: 700; font-size: 19px; color: #9cc9ff; white-space: nowrap; }
+  .footer { position: absolute; left: 0; top: 560px; width: 1366px; height: 140px; background: #081129; border-top: 2px solid #f5b82e; }
+  .footer-main { position: absolute; left: 0; top: 40px; width: 1366px; text-align: center; font-size: 22px; color: #ffffff; }
+  .footer-main b { color: #f5b82e; }
+  .footer-sub { position: absolute; left: 0; top: 80px; width: 1366px; text-align: center; font-size: 15px; color: #9cc9ff; }
+  .tagline { position: absolute; left: 906px; top: 25px; width: 400px; text-align: right; font-size: 16px; font-weight: 600; color: #cfe3ff; white-space: nowrap; }
+  .scroll-hint { position: absolute; left: 100px; top: 684px; font-family: 'Montserrat', Arial, sans-serif; font-size: 18px; font-weight: 700; color: #9cc9ff; letter-spacing: 1px; white-space: nowrap; }
+  .cover { position: absolute; background: #0b1630; }
+
+  /* Linea de tiempo: evolucion de los SO */
+  .tl-line { position: absolute; left: 98px; width: 4px; background: #1e3a72; border-radius: 2px; }
+  .tl-node { position: absolute; left: 72px; width: 56px; height: 56px; border-radius: 50%; background: #f5b82e; border: 4px solid #0b1630; text-align: center; padding-top: 9px; font-family: 'Montserrat', Arial, sans-serif; font-weight: 800; font-size: 24px; color: #0b1630; }
+  .gen { position: absolute; left: 160px; width: 1146px; height: 232px; background: #12234b; border: 2px solid #22427f; border-top: 6px solid #f5b82e; border-radius: 16px; }
+  .gen .icon { position: absolute; left: 24px; top: 22px; width: 58px; height: 58px; }
+  .gen .years { position: absolute; left: 98px; top: 20px; font-size: 15px; font-weight: 700; color: #6fb7ff; letter-spacing: 2px; text-transform: uppercase; white-space: nowrap; }
+  .gen h3 { position: absolute; left: 98px; top: 44px; font-size: 24px; line-height: 30px; color: #ffffff; white-space: nowrap; }
+  .gen .list { position: absolute; left: 24px; top: 100px; width: 600px; }
+  .gen .li { display: flex; align-items: flex-start; margin-bottom: 8px; }
+  .gen .dot { flex: 0 0 9px; width: 9px; height: 9px; margin-top: 7px; margin-right: 11px; border-radius: 50%; background: #f5b82e; }
+  .gen .lt { flex: 1; font-size: 16px; line-height: 23px; color: #e3ecff; }
+  .ex { position: absolute; left: 660px; top: 22px; width: 460px; height: 182px; background: #10224a; border: 2px solid #2b6cd4; border-radius: 14px; padding: 16px 20px; }
+  .ex h4 { font-family: 'Montserrat', Arial, sans-serif; font-size: 16px; font-weight: 700; color: #f5b82e; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px; }
+  .ex p { font-size: 16px; line-height: 25px; color: #e3ecff; }
+  .ex p b { color: #ffffff; }
+  .hito { position: absolute; width: 133px; height: 112px; background: #10224a; border: 2px solid #2b6cd4; border-radius: 14px; padding: 14px 12px; text-align: center; }
+  .hito h3 { font-size: 24px; color: #f5b82e; margin-bottom: 4px; }
+  .hito .n { font-family: 'Montserrat', Arial, sans-serif; font-weight: 700; font-size: 15px; color: #ffffff; margin-bottom: 2px; white-space: nowrap; }
+  .hito p { font-size: 13px; line-height: 17px; color: #cfe3ff; }
+  .sources { position: absolute; left: 100px; width: 1166px; text-align: center; font-size: 15px; line-height: 23px; color: #9cc9ff; }
+</style>
+</head>
+<body>
+
+<section class="page" style="height:2703px;" data-document-role="page" data-label="Evolución de los sistemas operativos">
+  <div class="circle-deco" style="left:1060px; top:24px; width:380px; height:380px;"></div>
+  <div class="sec-kicker" style="top:70px;">Infografía · Taller 1.4 · Punto 1</div>
+  <h2 class="sec-title" style="top:102px;">Evolución de los <b>sistemas operativos</b></h2>
+  <div class="accent-bar" style="left:100px; top:172px;"></div>
+  <div class="sec-lead" style="top:196px;">Los sistemas operativos evolucionaron junto con el hardware: pasaron de no existir a administrar desde computadoras de tubos de vacío hasta teléfonos inteligentes y servidores en la nube.</div>
+  <div class="tl-line" style="top:330px; height:1032px;"></div>
+  <div class="tl-node" style="top:302px;">1</div>
+  <div class="gen" style="top:290px;">
+    <img class="icon" src="https://jhonatanjj2006.github.io/portafolio-sistemas-operativos/icons/valvula.png" alt="">
+    <div class="years">Primera generación · 1945 – 1955</div>
+    <h3>Tubos de vacío y tableros</h3>
+    <div class="list"><div class="li"><div class="dot"></div><div class="lt">Computadoras enormes construidas con miles de tubos de vacío.</div></div><div class="li"><div class="dot"></div><div class="lt">Se programaban en lenguaje máquina, conectando cables en tableros.</div></div><div class="li"><div class="dot"></div><div class="lt">No había sistema operativo: cada programador operaba la máquina a mano.</div></div></div>
+    <div class="ex"><h4>Ejemplos</h4><p><b>ENIAC</b> (1945) y <b>UNIVAC I</b> (1951). Desde inicios de los años 50 los programas se cargaban con <b>tarjetas perforadas</b>.</p></div>
+  </div>
+  <div class="tl-node" style="top:560px;">2</div>
+  <div class="gen" style="top:548px;">
+    <img class="icon" src="https://jhonatanjj2006.github.io/portafolio-sistemas-operativos/icons/transistor.png" alt="">
+    <div class="years">Segunda generación · 1955 – 1965</div>
+    <h3>Transistores y procesamiento por lotes</h3>
+    <div class="list"><div class="li"><div class="dot"></div><div class="lt">Los transistores hacen las computadoras más confiables (mainframes).</div></div><div class="li"><div class="dot"></div><div class="lt">Los trabajos se agrupan en lotes en cinta magnética y se ejecutan uno tras otro.</div></div><div class="li"><div class="dot"></div><div class="lt">Aparece el monitor residente, el primer sistema operativo.</div></div></div>
+    <div class="ex"><h4>Ejemplos</h4><p><b>GM-NAA I/O</b> (1956, IBM 704), considerado el primer SO. <b>FMS</b> (Fortran Monitor System) e <b>IBSYS</b> en la IBM 7094.</p></div>
+  </div>
+  <div class="tl-node" style="top:818px;">3</div>
+  <div class="gen" style="top:806px;">
+    <img class="icon" src="https://jhonatanjj2006.github.io/portafolio-sistemas-operativos/icons/circuito.png" alt="">
+    <div class="years">Tercera generación · 1965 – 1980</div>
+    <h3>Circuitos integrados y multiprogramación</h3>
+    <div class="list"><div class="li"><div class="dot"></div><div class="lt">Multiprogramación: varios trabajos en memoria para no dejar la CPU ociosa.</div></div><div class="li"><div class="dot"></div><div class="lt">Spooling y tiempo compartido: muchos usuarios conectados por terminales.</div></div><div class="li"><div class="dot"></div><div class="lt">Nace UNIX (1969), reescrito en lenguaje C en 1973.</div></div></div>
+    <div class="ex"><h4>Ejemplos</h4><p><b>OS/360</b> de IBM (1966), <b>CTSS</b> del MIT (1961), <b>MULTICS</b> (1965) y <b>UNIX</b> de Bell Labs (1969).</p></div>
+  </div>
+  <div class="tl-node" style="top:1076px;">4</div>
+  <div class="gen" style="top:1064px;">
+    <img class="icon" src="https://jhonatanjj2006.github.io/portafolio-sistemas-operativos/icons/pc.png" alt="">
+    <div class="years">Cuarta generación · 1980 – hoy</div>
+    <h3>Computadoras personales</h3>
+    <div class="list"><div class="li"><div class="dot"></div><div class="lt">Los microprocesadores llevan la computadora a hogares y oficinas.</div></div><div class="li"><div class="dot"></div><div class="lt">Las interfaces gráficas (GUI), con ventanas y ratón, reemplazan a los comandos.</div></div><div class="li"><div class="dot"></div><div class="lt">Surgen los SO de red, los distribuidos y el software libre.</div></div></div>
+    <div class="ex"><h4>Ejemplos</h4><p><b>CP/M</b> (1974), <b>MS-DOS</b> (1981), sistema del <b>Macintosh</b> con GUI (1984, hoy macOS), <b>Windows</b> (1985) y <b>Linux</b> (1991).</p></div>
+  </div>
+  <div class="tl-node" style="top:1334px;">5</div>
+  <div class="gen" style="top:1322px;">
+    <img class="icon" src="https://jhonatanjj2006.github.io/portafolio-sistemas-operativos/icons/movil.png" alt="">
+    <div class="years">Quinta generación · 1990 – hoy</div>
+    <h3>Dispositivos móviles, nube e IoT</h3>
+    <div class="list"><div class="li"><div class="dot"></div><div class="lt">SO para teléfonos y tabletas: pantalla táctil, batería y sensores como el GPS.</div></div><div class="li"><div class="dot"></div><div class="lt">Virtualización y nube: varios SO funcionan sobre un mismo servidor.</div></div><div class="li"><div class="dot"></div><div class="lt">SO embebidos para el Internet de las cosas (IoT).</div></div></div>
+    <div class="ex"><h4>Ejemplos</h4><p><b>Palm OS</b> (1996), <b>Symbian</b> (1998), <b>iPhone OS</b> (2007, hoy iOS) y <b>Android</b> (2008). Nube: Amazon EC2 (2006).</p></div>
+  </div>
+  <div class="divider" style="top:1600px;"></div>
+  <div class="sec-kicker" style="top:1650px;">Línea de tiempo</div>
+  <h2 class="sec-title" style="top:1682px;">Hitos <b>clave</b></h2>
+  <div class="accent-bar" style="left:100px; top:1752px;"></div>
+  <div class="hito" style="left:100px; top:1786px;"><h3>1956</h3><div class="n">GM-NAA I/O</div><p>Primer SO por lotes</p></div>
+  <div class="hito" style="left:248px; top:1786px;"><h3>1969</h3><div class="n">UNIX</div><p>Bell Labs</p></div>
+  <div class="hito" style="left:396px; top:1786px;"><h3>1981</h3><div class="n">MS-DOS</div><p>IBM PC</p></div>
+  <div class="hito" style="left:544px; top:1786px;"><h3>1984</h3><div class="n">Macintosh</div><p>GUI con ratón</p></div>
+  <div class="hito" style="left:692px; top:1786px;"><h3>1985</h3><div class="n">Windows 1.0</div><p>Microsoft</p></div>
+  <div class="hito" style="left:840px; top:1786px;"><h3>1991</h3><div class="n">Linux</div><p>Linus Torvalds</p></div>
+  <div class="hito" style="left:988px; top:1786px;"><h3>2007</h3><div class="n">iPhone OS</div><p>Hoy iOS</p></div>
+  <div class="hito" style="left:1136px; top:1786px;"><h3>2008</h3><div class="n">Android</div><p>Google</p></div>
+  <div class="divider" style="top:1958px;"></div>
+  <div class="circle-deco" style="left:1080px; top:1998px; width:360px; height:360px;"></div>
+  <div class="sec-kicker" style="top:2028px;">Cierre</div>
+  <h2 class="sec-title" style="top:2060px;"><b>Conclusión</b></h2>
+  <div class="accent-bar" style="left:100px; top:2130px;"></div>
+  <div class="concl-box" style="top:2158px;"><p>Cada generación trajo un sistema operativo más <b>eficiente</b>, más <b>accesible</b> y más <b>fácil de usar</b>.</p></div>
+  <div class="badge" style="left:278px; top:2393px;">Lotes</div>
+  <div class="badge" style="left:488px; top:2393px;">Multitarea</div>
+  <div class="badge" style="left:698px; top:2393px;">GUI</div>
+  <div class="badge" style="left:908px; top:2393px;">Móvil y nube</div>
+  <div class="sources" style="top:2477px;">Fuentes: Tanenbaum, A. S. y Bos, H. (2015). <i>Modern Operating Systems</i> (4.ª ed.). Pearson.<br>Videos de la clase: «Evolución de los Sistemas Operativos» y «La evolución de los sistemas operativos» (Vectorialis, YouTube).</div>
+  <div class="footer" style="top:2563px;">
+    <div class="footer-main">Elaborado por <b>Jhonatan Jara</b> · Computación · UTPL · 2026</div>
+    <div class="footer-sub">Taller 1.4 · La evolución de los Sistemas Operativos</div>
+  </div>
+</section>
+
+</body>
+</html>
