@@ -68,58 +68,65 @@
   .scroll-hint { position: absolute; left: 100px; top: 684px; font-family: 'Montserrat', Arial, sans-serif; font-size: 18px; font-weight: 700; color: #9cc9ff; letter-spacing: 1px; white-space: nowrap; }
   .cover { position: absolute; background: #0b1630; }
 
-  .os-head { position:absolute; left:100px; width:1166px; height:64px; background:#12234b; border:2px solid #22427f; border-left:10px solid #f5b82e; border-radius:14px; padding:14px 24px; font-family:'Montserrat',Arial,sans-serif; font-size:26px; font-weight:800; color:#fff; }
-  .os-head span { color:#6fb7ff; font-size:16px; font-weight:700; letter-spacing:2px; margin-left:14px; }
-  .card { position:absolute; width:568px; height:118px; background:#12234b; border:2px solid #22427f; border-top:5px solid #f5b82e; border-radius:14px; }
-  .card .yr { position:absolute; left:16px; top:18px; width:84px; height:76px; border-radius:12px; background:#f5b82e; color:#0b1630; font-family:'Montserrat',Arial,sans-serif; font-weight:800; font-size:24px; text-align:center; padding-top:22px; }
-  .card h3 { text-align:left; position:absolute; left:118px; top:14px; font-size:21px; line-height:26px; color:#fff; white-space:nowrap; }
-  .card p { text-align:left; position:absolute; left:118px; top:44px; width:432px; font-size:15px; line-height:21px; color:#e3ecff; }
+  .os-title { position:absolute; left:130px; width:900px; height:40px; font-family:'Montserrat',Arial,sans-serif; font-size:28px; line-height:40px; font-weight:800; color:#fff; text-align:left; white-space:nowrap; }
+  .os-sub { position:absolute; left:130px; width:900px; height:24px; font-size:16px; line-height:24px; font-weight:700; letter-spacing:2px; color:#6fb7ff; text-align:left; white-space:nowrap; }
+  .os-bar { position:absolute; left:100px; width:10px; height:76px; background:#f5b82e; border-radius:5px; }
+  .card { position:absolute; width:568px; height:200px; background:#12234b; border:2px solid #22427f; border-top:5px solid #f5b82e; border-radius:14px; }
   .card.now { border-top-color:#6fb7ff; background:#10224a; }
+  .yr { position:absolute; left:20px; top:18px; width:110px; height:40px; line-height:40px; padding:0; border-radius:10px; background:#f5b82e; color:#0b1630; font-family:'Montserrat',Arial,sans-serif; font-weight:800; font-size:22px; text-align:center; }
   .card.now .yr { background:#6fb7ff; }
+  .ct { position:absolute; left:20px; top:70px; width:380px; height:30px; font-family:'Montserrat',Arial,sans-serif; font-size:20px; line-height:30px; font-weight:700; color:#fff; text-align:left; white-space:nowrap; }
+  .cd { position:absolute; left:20px; top:106px; width:380px; height:80px; font-size:15px; line-height:20px; color:#e3ecff; text-align:left; }
+  .card.noimg .ct, .card.noimg .cd { width:520px; }
+  .pic { position:absolute; left:412px; top:36px; width:136px; height:92px; border-radius:10px; }
   .sources { position:absolute; left:100px; width:1166px; text-align:center; font-size:14px; line-height:22px; color:#9cc9ff; }
 </style>
 </head>
 <body>
 
-<section class="page" style="height:2730px;" data-document-role="page" data-label="Evolución de Windows y Linux">
+<section class="page" style="height:4026px;" data-document-role="page" data-label="Evolución de Windows y Linux">
   <div class="circle-deco" style="left:1060px; top:24px; width:380px; height:380px;"></div>
-  <div class="sec-kicker" style="top:70px;">Infografía · Taller · Evolución de los SO</div>
-  <h2 class="sec-title" style="top:102px;">Taller: Evolución de <b>Windows y Linux</b></h2>
-  <div class="accent-bar" style="left:100px; top:172px;"></div>
-  <div class="sec-lead" style="top:196px;">Dos sistemas operativos con historias distintas: Windows, el sistema comercial de Microsoft, y Linux, el núcleo libre creado por una comunidad. Así evolucionaron desde sus primeras versiones hasta hoy.</div>
-  <div class="os-head" style="top:300px;">Evolución de Windows<span>MICROSOFT · 1985 – 2026</span></div>
-  <div class="card" style="left:100px; top:390px;"><div class="yr">1985</div><h3>Windows 1.0</h3><p>Entorno gráfico de 16 bits que se ejecutaba sobre MS-DOS (1981). Ventanas en mosaico y uso del ratón.</p></div>
-  <div class="card" style="left:698px; top:390px;"><div class="yr">1987</div><h3>Windows 2.0</h3><p>Ventanas superpuestas y atajos de teclado; primeras versiones de Word y Excel para Windows.</p></div>
-  <div class="card" style="left:100px; top:526px;"><div class="yr">1990</div><h3>Windows 3.0 / 3.1</h3><p>Administrador de programas, mejor manejo de memoria y fuentes TrueType (3.1, 1992). Gran éxito comercial.</p></div>
-  <div class="card" style="left:698px; top:526px;"><div class="yr">1993</div><h3>Windows NT 3.1</h3><p>Nuevo núcleo de 32 bits, sistema de archivos NTFS y seguridad multiusuario; base de las versiones actuales.</p></div>
-  <div class="card" style="left:100px; top:662px;"><div class="yr">1995</div><h3>Windows 95</h3><p>Menú Inicio, barra de tareas, Plug and Play y nombres de archivo largos.</p></div>
-  <div class="card" style="left:698px; top:662px;"><div class="yr">1998</div><h3>Windows 98</h3><p>Soporte USB, Internet Explorer integrado y sistema de archivos FAT32.</p></div>
-  <div class="card" style="left:100px; top:798px;"><div class="yr">2000</div><h3>Windows 2000 y ME</h3><p>2000: núcleo NT para empresas con Active Directory. ME: última versión basada en MS-DOS.</p></div>
-  <div class="card" style="left:698px; top:798px;"><div class="yr">2001</div><h3>Windows XP</h3><p>Une la línea doméstica con el núcleo NT. Interfaz Luna; muy popular por más de una década.</p></div>
-  <div class="card" style="left:100px; top:934px;"><div class="yr">2007</div><h3>Windows Vista</h3><p>Interfaz Aero, Control de cuentas de usuario (UAC) y mayor seguridad, pero altos requisitos.</p></div>
-  <div class="card" style="left:698px; top:934px;"><div class="yr">2009</div><h3>Windows 7</h3><p>Barra de tareas renovada, mejor rendimiento que Vista y soporte táctil básico.</p></div>
-  <div class="card" style="left:100px; top:1070px;"><div class="yr">2012</div><h3>Windows 8 / 8.1</h3><p>Pantalla de Inicio con mosaicos para tabletas y la Tienda Windows. 8.1 (2013) recupera el botón Inicio.</p></div>
-  <div class="card" style="left:698px; top:1070px;"><div class="yr">2015</div><h3>Windows 10</h3><p>Vuelve el menú Inicio, navegador Edge, asistente Cortana y actualizaciones continuas como servicio.</p></div>
-  <div class="card" style="left:100px; top:1206px;"><div class="yr">2021</div><h3>Windows 11</h3><p>Diseño centrado, requisito de TPM 2.0 y Arranque seguro, widgets y diseños de ventanas (Snap).</p></div>
-  <div class="card now" style="left:698px; top:1206px;"><div class="yr">2026</div><h3>Windows 11, versión 26H2</h3><p>Versión actual (29 sep 2026), «Windows 11 2026 Update»: llega como paquete de habilitación sobre 24H2 y 25H2.</p></div>
-  <div class="divider" style="top:1382px;"></div>
-  <div class="os-head" style="top:1432px;">Evolución de Linux<span>UNIX · GNU · LINUX · 1969 – 2026</span></div>
-  <div class="card" style="left:100px; top:1522px;"><div class="yr">1969</div><h3>UNIX</h3><p>Creado en Bell Labs por Ken Thompson y Dennis Ritchie; reescrito en C en 1973. Inspira a Linux.</p></div>
-  <div class="card" style="left:698px; top:1522px;"><div class="yr">1983</div><h3>Proyecto GNU</h3><p>Richard Stallman anuncia GNU para crear un sistema tipo UNIX libre; en 1989 nace la licencia GPL.</p></div>
-  <div class="card" style="left:100px; top:1658px;"><div class="yr">1991</div><h3>Linux 0.01</h3><p>Linus Torvalds, estudiante en Helsinki, publica su núcleo para PC con procesador Intel 386.</p></div>
-  <div class="card" style="left:698px; top:1658px;"><div class="yr">1993</div><h3>Primeras distribuciones</h3><p>Slackware y Debian unen el núcleo Linux con las herramientas GNU en un sistema listo para instalar.</p></div>
-  <div class="card" style="left:100px; top:1794px;"><div class="yr">1994</div><h3>Linux 1.0</h3><p>Primera versión estable del núcleo, con soporte de red. Ese año nace Red Hat Linux.</p></div>
-  <div class="card" style="left:698px; top:1794px;"><div class="yr">1996</div><h3>Linux 2.0</h3><p>Soporte para varios procesadores (SMP). En 2003 la serie 2.6 mejora el rendimiento en servidores.</p></div>
-  <div class="card" style="left:100px; top:1930px;"><div class="yr">2004</div><h3>Ubuntu</h3><p>Distribución basada en Debian pensada para escritorio; acerca Linux a usuarios comunes.</p></div>
-  <div class="card" style="left:698px; top:1930px;"><div class="yr">2008</div><h3>Android</h3><p>Google lanza Android, basado en el núcleo Linux; lleva Linux a miles de millones de teléfonos.</p></div>
-  <div class="card" style="left:100px; top:2066px;"><div class="yr">2011</div><h3>Linux 3.0</h3><p>Cambio de numeración por los 20 años de Linux; mejoras en sistemas de archivos como Btrfs.</p></div>
-  <div class="card" style="left:698px; top:2066px;"><div class="yr">2015</div><h3>Linux 4.0</h3><p>Parcheo del núcleo en vivo (livepatch) para aplicar arreglos sin reiniciar.</p></div>
-  <div class="card" style="left:100px; top:2202px;"><div class="yr">2019</div><h3>Linux 5.0</h3><p>Mayor soporte de hardware nuevo; en 5.1 llega io_uring para entrada y salida asíncrona.</p></div>
-  <div class="card" style="left:698px; top:2202px;"><div class="yr">2022</div><h3>Linux 6.0</h3><p>En 6.1 se integra el lenguaje Rust como segundo lenguaje para escribir el núcleo.</p></div>
-  <div class="card" style="left:100px; top:2338px;"><div class="yr">2026</div><h3>Linux 7.0</h3><p>Publicado en abril de 2026; continúa la serie con nuevas mejoras de hardware y seguridad.</p></div>
-  <div class="card now" style="left:698px; top:2338px;"><div class="yr">2026</div><h3>Linux 7.2 (actual)</h3><p>Versión estable más reciente: 7.2.9 (3 oct 2026). Distros clave hoy: Ubuntu, Debian, Fedora, Arch.</p></div>
-  <div class="sources" style="top:2504px;">Fuentes: Microsoft Learn, «Windows 11 release information» (2026); Windows Experience Blog (29/09/2026); kernel.org (10/2026);<br>Torvalds, L. (1991), anuncio en comp.os.minix; gnu.org, «Anuncio inicial» (1983); Tanenbaum, A. S. y Bos, H. (2015). <i>Modern Operating Systems</i>. Pearson.</div>
-  <div class="footer" style="top:2590px;">
+  <div class="sec-kicker" style="top:64px; width:1000px; height:28px; line-height:28px;">Infografía · Taller · Evolución de los SO</div>
+  <h2 class="sec-title" style="top:104px; width:1166px; height:60px; line-height:60px;">Taller: Evolución de <b>Windows y Linux</b></h2>
+  <div class="accent-bar" style="left:100px; top:178px;"></div>
+  <div class="sec-lead" style="top:202px; width:1166px;">Dos sistemas operativos con historias distintas: Windows, el sistema comercial de Microsoft, y Linux, el núcleo libre creado por una comunidad. Así evolucionaron desde sus primeras versiones hasta hoy.</div>
+  <div class="os-bar" style="top:300px;"></div>
+  <div class="os-title" style="top:300px;">Evolución de Windows</div>
+  <div class="os-sub" style="top:350px;">MICROSOFT · 1985 – 2026</div>
+  <div class="card" style="left:100px; top:410px;"><div class="yr">1985</div><div class="ct">Windows 1.0</div><div class="cd">Entorno gráfico de 16 bits que se ejecutaba sobre MS-DOS (1981). Ventanas en mosaico y uso del ratón.</div><img class="pic" src="https://jhonatanjj2006.github.io/portafolio-sistemas-operativos/img-taller/tiles/win1.png" alt=""></div>
+  <div class="card" style="left:698px; top:410px;"><div class="yr">1987</div><div class="ct">Windows 2.0</div><div class="cd">Ventanas superpuestas y atajos de teclado; primeras versiones de Word y Excel para Windows.</div><img class="pic" src="https://jhonatanjj2006.github.io/portafolio-sistemas-operativos/img-taller/tiles/win1.png" alt=""></div>
+  <div class="card" style="left:100px; top:634px;"><div class="yr">1990</div><div class="ct">Windows 3.0 / 3.1</div><div class="cd">Administrador de programas, mejor manejo de memoria y fuentes TrueType (3.1, 1992). Gran éxito comercial.</div><img class="pic" src="https://jhonatanjj2006.github.io/portafolio-sistemas-operativos/img-taller/tiles/win3.png" alt=""></div>
+  <div class="card" style="left:698px; top:634px;"><div class="yr">1993</div><div class="ct">Windows NT 3.1</div><div class="cd">Nuevo núcleo de 32 bits, sistema de archivos NTFS y seguridad multiusuario; base de las versiones actuales.</div><img class="pic" src="https://jhonatanjj2006.github.io/portafolio-sistemas-operativos/img-taller/tiles/winnt.png" alt=""></div>
+  <div class="card" style="left:100px; top:858px;"><div class="yr">1995</div><div class="ct">Windows 95</div><div class="cd">Menú Inicio, barra de tareas, Plug and Play y nombres de archivo largos.</div><img class="pic" src="https://jhonatanjj2006.github.io/portafolio-sistemas-operativos/img-taller/tiles/win95.png" alt=""></div>
+  <div class="card" style="left:698px; top:858px;"><div class="yr">1998</div><div class="ct">Windows 98</div><div class="cd">Soporte USB, Internet Explorer integrado y sistema de archivos FAT32.</div><img class="pic" src="https://jhonatanjj2006.github.io/portafolio-sistemas-operativos/img-taller/tiles/win98.png" alt=""></div>
+  <div class="card" style="left:100px; top:1082px;"><div class="yr">2000</div><div class="ct">Windows 2000 y ME</div><div class="cd">2000: núcleo NT para empresas con Active Directory. ME: última versión basada en MS-DOS.</div><img class="pic" src="https://jhonatanjj2006.github.io/portafolio-sistemas-operativos/img-taller/tiles/win2000.png" alt=""></div>
+  <div class="card" style="left:698px; top:1082px;"><div class="yr">2001</div><div class="ct">Windows XP</div><div class="cd">Une la línea doméstica con el núcleo NT. Interfaz Luna; muy popular por más de una década.</div><img class="pic" src="https://jhonatanjj2006.github.io/portafolio-sistemas-operativos/img-taller/tiles/winxp.png" alt=""></div>
+  <div class="card noimg" style="left:100px; top:1306px;"><div class="yr">2007</div><div class="ct">Windows Vista</div><div class="cd">Interfaz Aero y Control de cuentas de usuario (UAC). Más seguro, pero con altos requisitos de hardware.</div></div>
+  <div class="card noimg" style="left:698px; top:1306px;"><div class="yr">2009</div><div class="ct">Windows 7</div><div class="cd">Barra de tareas renovada, mejor rendimiento que Vista y soporte táctil básico.</div></div>
+  <div class="card" style="left:100px; top:1530px;"><div class="yr">2012</div><div class="ct">Windows 8 / 8.1</div><div class="cd">Pantalla de Inicio con mosaicos para tabletas y la Tienda Windows. 8.1 (2013) recupera el botón Inicio.</div><img class="pic" src="https://jhonatanjj2006.github.io/portafolio-sistemas-operativos/img-taller/tiles/win8.png" alt=""></div>
+  <div class="card" style="left:698px; top:1530px;"><div class="yr">2015</div><div class="ct">Windows 10</div><div class="cd">Vuelve el menú Inicio, navegador Edge, asistente Cortana y actualizaciones continuas como servicio.</div><img class="pic" src="https://jhonatanjj2006.github.io/portafolio-sistemas-operativos/img-taller/tiles/win10.png" alt=""></div>
+  <div class="card" style="left:100px; top:1754px;"><div class="yr">2021</div><div class="ct">Windows 11</div><div class="cd">Diseño centrado, requisito de TPM 2.0 y Arranque seguro, widgets y diseños de ventanas (Snap).</div><img class="pic" src="https://jhonatanjj2006.github.io/portafolio-sistemas-operativos/img-taller/tiles/win11.png" alt=""></div>
+  <div class="card now" style="left:698px; top:1754px;"><div class="yr">2026</div><div class="ct">Windows 11, versión 26H2</div><div class="cd">Versión actual (29 sep 2026), «Windows 11 2026 Update»: llega como paquete de habilitación sobre 24H2 y 25H2.</div><img class="pic" src="https://jhonatanjj2006.github.io/portafolio-sistemas-operativos/img-taller/tiles/win11.png" alt=""></div>
+  <div class="divider" style="top:2018px;"></div>
+  <div class="os-bar" style="top:2068px;"></div>
+  <div class="os-title" style="top:2068px;">Evolución de Linux</div>
+  <div class="os-sub" style="top:2118px;">UNIX · GNU · LINUX · 1969 – 2026</div>
+  <div class="card" style="left:100px; top:2178px;"><div class="yr">1969</div><div class="ct">UNIX</div><div class="cd">Creado en Bell Labs por Ken Thompson y Dennis Ritchie; reescrito en C en 1973. Inspira a Linux.</div><img class="pic" src="https://jhonatanjj2006.github.io/portafolio-sistemas-operativos/img-taller/tiles/unix.png" alt=""></div>
+  <div class="card" style="left:698px; top:2178px;"><div class="yr">1983</div><div class="ct">Proyecto GNU</div><div class="cd">Richard Stallman anuncia GNU para crear un sistema tipo UNIX libre; en 1989 nace la licencia GPL.</div><img class="pic" src="https://jhonatanjj2006.github.io/portafolio-sistemas-operativos/img-taller/tiles/gnu.png" alt=""></div>
+  <div class="card" style="left:100px; top:2402px;"><div class="yr">1991</div><div class="ct">Linux 0.01</div><div class="cd">Linus Torvalds, estudiante en Helsinki, publica su núcleo para PC con procesador Intel 386.</div><img class="pic" src="https://jhonatanjj2006.github.io/portafolio-sistemas-operativos/img-taller/tiles/torvalds.png" alt=""></div>
+  <div class="card" style="left:698px; top:2402px;"><div class="yr">1993</div><div class="ct">Primeras distribuciones</div><div class="cd">Slackware y Debian unen el núcleo Linux con las herramientas GNU en un sistema listo para instalar.</div><img class="pic" src="https://jhonatanjj2006.github.io/portafolio-sistemas-operativos/img-taller/tiles/distros93.png" alt=""></div>
+  <div class="card" style="left:100px; top:2626px;"><div class="yr">1994</div><div class="ct">Linux 1.0</div><div class="cd">Primera versión estable del núcleo, con soporte de red. Ese año nace Red Hat Linux.</div><img class="pic" src="https://jhonatanjj2006.github.io/portafolio-sistemas-operativos/img-taller/tiles/redhat.png" alt=""></div>
+  <div class="card" style="left:698px; top:2626px;"><div class="yr">1996</div><div class="ct">Linux 2.0</div><div class="cd">Soporte para varios procesadores (SMP). En 2003 la serie 2.6 mejora el rendimiento en servidores.</div><img class="pic" src="https://jhonatanjj2006.github.io/portafolio-sistemas-operativos/img-taller/tiles/tux.png" alt=""></div>
+  <div class="card" style="left:100px; top:2850px;"><div class="yr">2004</div><div class="ct">Ubuntu</div><div class="cd">Distribución basada en Debian pensada para escritorio; acerca Linux a usuarios comunes.</div><img class="pic" src="https://jhonatanjj2006.github.io/portafolio-sistemas-operativos/img-taller/tiles/ubuntu.png" alt=""></div>
+  <div class="card" style="left:698px; top:2850px;"><div class="yr">2008</div><div class="ct">Android</div><div class="cd">Google lanza Android, basado en el núcleo Linux; lleva Linux a miles de millones de teléfonos.</div><img class="pic" src="https://jhonatanjj2006.github.io/portafolio-sistemas-operativos/img-taller/tiles/android.png" alt=""></div>
+  <div class="card" style="left:100px; top:3074px;"><div class="yr">2011</div><div class="ct">Linux 3.0</div><div class="cd">Cambio de numeración por los 20 años de Linux; mejoras en sistemas de archivos como Btrfs.</div><img class="pic" src="https://jhonatanjj2006.github.io/portafolio-sistemas-operativos/img-taller/tiles/tux.png" alt=""></div>
+  <div class="card noimg" style="left:698px; top:3074px;"><div class="yr">2015</div><div class="ct">Linux 4.0</div><div class="cd">Parcheo del núcleo en vivo (livepatch) para aplicar arreglos sin reiniciar.</div></div>
+  <div class="card noimg" style="left:100px; top:3298px;"><div class="yr">2019</div><div class="ct">Linux 5.0</div><div class="cd">Mayor soporte de hardware nuevo; en 5.1 llega io_uring para entrada y salida asíncrona.</div></div>
+  <div class="card noimg" style="left:698px; top:3298px;"><div class="yr">2022</div><div class="ct">Linux 6.0</div><div class="cd">En 6.1 se integra el lenguaje Rust como segundo lenguaje para escribir el núcleo.</div></div>
+  <div class="card" style="left:100px; top:3522px;"><div class="yr">2026</div><div class="ct">Linux 7.0</div><div class="cd">Publicado en abril de 2026; continúa la serie con nuevas mejoras de hardware y seguridad.</div><img class="pic" src="https://jhonatanjj2006.github.io/portafolio-sistemas-operativos/img-taller/tiles/tux.png" alt=""></div>
+  <div class="card now" style="left:698px; top:3522px;"><div class="yr">2026</div><div class="ct">Linux 7.2 (actual)</div><div class="cd">Versión estable más reciente: 7.2.9 (3 oct 2026). Distros clave hoy: Ubuntu, Debian, Fedora, Arch.</div><img class="pic" src="https://jhonatanjj2006.github.io/portafolio-sistemas-operativos/img-taller/tiles/distros.png" alt=""></div>
+  <div class="sources" style="top:3776px;">Fuentes: Microsoft Learn, «Windows 11 release information» (2026); Windows Experience Blog (29/09/2026); kernel.org (10/2026);<br>Torvalds, L. (1991), anuncio en comp.os.minix; gnu.org, «Anuncio inicial» (1983); Tanenbaum, A. S. y Bos, H. (2015). <i>Modern Operating Systems</i>. Pearson.<br>Imágenes: Wikimedia Commons (logotipos de dominio público y licencias libres).</div>
+  <div class="footer" style="top:3886px;">
     <div class="footer-main">Elaborado por <b>Jhonatan Jara</b> · Computación · UTPL · 2026</div>
     <div class="footer-sub">Taller de la Evolución de los Sistemas Operativos · Windows y Linux</div>
   </div>

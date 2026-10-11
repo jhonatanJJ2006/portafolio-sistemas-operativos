@@ -1,17 +1,22 @@
 # Genera taller-windows-linux.html: infografias de la evolucion de Windows y Linux.
-import re, pathlib
+import re, sys, pathlib
 ROOT = pathlib.Path(__file__).resolve().parent.parent
+LOCAL="--local" in sys.argv
+IMG="img-taller/tiles/" if LOCAL else "https://jhonatanjj2006.github.io/portafolio-sistemas-operativos/img-taller/tiles/"
 src = (ROOT / "una-pagina.html").read_text(encoding="utf-8")
 style = re.search(r"<style>(.*?)</style>", src, re.S).group(1)
 extra = """
-  .os-head { position:absolute; left:100px; width:1166px; height:64px; background:#12234b; border:2px solid #22427f; border-left:10px solid #f5b82e; border-radius:14px; padding:14px 24px; font-family:'Montserrat',Arial,sans-serif; font-size:26px; font-weight:800; color:#fff; }
-  .os-head span { color:#6fb7ff; font-size:16px; font-weight:700; letter-spacing:2px; margin-left:14px; }
-  .card { position:absolute; width:568px; height:118px; background:#12234b; border:2px solid #22427f; border-top:5px solid #f5b82e; border-radius:14px; }
-  .card .yr { position:absolute; left:16px; top:18px; width:84px; height:76px; border-radius:12px; background:#f5b82e; color:#0b1630; font-family:'Montserrat',Arial,sans-serif; font-weight:800; font-size:24px; text-align:center; padding-top:22px; }
-  .card h3 { text-align:left; position:absolute; left:118px; top:14px; font-size:21px; line-height:26px; color:#fff; white-space:nowrap; }
-  .card p { text-align:left; position:absolute; left:118px; top:44px; width:432px; font-size:15px; line-height:21px; color:#e3ecff; }
+  .os-title { position:absolute; left:130px; width:900px; height:40px; font-family:'Montserrat',Arial,sans-serif; font-size:28px; line-height:40px; font-weight:800; color:#fff; text-align:left; white-space:nowrap; }
+  .os-sub { position:absolute; left:130px; width:900px; height:24px; font-size:16px; line-height:24px; font-weight:700; letter-spacing:2px; color:#6fb7ff; text-align:left; white-space:nowrap; }
+  .os-bar { position:absolute; left:100px; width:10px; height:76px; background:#f5b82e; border-radius:5px; }
+  .card { position:absolute; width:568px; height:200px; background:#12234b; border:2px solid #22427f; border-top:5px solid #f5b82e; border-radius:14px; }
   .card.now { border-top-color:#6fb7ff; background:#10224a; }
+  .yr { position:absolute; left:20px; top:18px; width:110px; height:40px; line-height:40px; padding:0; border-radius:10px; background:#f5b82e; color:#0b1630; font-family:'Montserrat',Arial,sans-serif; font-weight:800; font-size:22px; text-align:center; }
   .card.now .yr { background:#6fb7ff; }
+  .ct { position:absolute; left:20px; top:70px; width:380px; height:30px; font-family:'Montserrat',Arial,sans-serif; font-size:20px; line-height:30px; font-weight:700; color:#fff; text-align:left; white-space:nowrap; }
+  .cd { position:absolute; left:20px; top:106px; width:380px; height:80px; font-size:15px; line-height:20px; color:#e3ecff; text-align:left; }
+  .card.noimg .ct, .card.noimg .cd { width:520px; }
+  .pic { position:absolute; left:412px; top:36px; width:136px; height:92px; border-radius:10px; }
   .sources { position:absolute; left:100px; width:1166px; text-align:center; font-size:14px; line-height:22px; color:#9cc9ff; }
 """
 WIN = [
@@ -23,7 +28,7 @@ WIN = [
  ("1998","Windows 98","Soporte USB, Internet Explorer integrado y sistema de archivos FAT32."),
  ("2000","Windows 2000 y ME","2000: núcleo NT para empresas con Active Directory. ME: última versión basada en MS-DOS."),
  ("2001","Windows XP","Une la línea doméstica con el núcleo NT. Interfaz Luna; muy popular por más de una década."),
- ("2007","Windows Vista","Interfaz Aero, Control de cuentas de usuario (UAC) y mayor seguridad, pero altos requisitos."),
+ ("2007","Windows Vista","Interfaz Aero y Control de cuentas de usuario (UAC). Más seguro, pero con altos requisitos de hardware."),
  ("2009","Windows 7","Barra de tareas renovada, mejor rendimiento que Vista y soporte táctil básico."),
  ("2012","Windows 8 / 8.1","Pantalla de Inicio con mosaicos para tabletas y la Tienda Windows. 8.1 (2013) recupera el botón Inicio."),
  ("2015","Windows 10","Vuelve el menú Inicio, navegador Edge, asistente Cortana y actualizaciones continuas como servicio."),
@@ -46,28 +51,34 @@ LIN = [
  ("2026","Linux 7.0","Publicado en abril de 2026; continúa la serie con nuevas mejoras de hardware y seguridad."),
  ("2026","Linux 7.2 (actual)","Versión estable más reciente: 7.2.9 (3 oct 2026). Distros clave hoy: Ubuntu, Debian, Fedora, Arch."),
 ]
+IM={'Windows 1.0': 'win1', 'Windows 2.0': 'win1', 'Windows 3.0 / 3.1': 'win3', 'Windows NT 3.1': 'winnt', 'Windows 95': 'win95', 'Windows 98': 'win98', 'Windows 2000 y ME': 'win2000', 'Windows XP': 'winxp', 'Windows 8 / 8.1': 'win8', 'Windows 10': 'win10', 'Windows 11': 'win11', 'Windows 11, versión 26H2': 'win11', 'UNIX': 'unix', 'Proyecto GNU': 'gnu', 'Linux 0.01': 'torvalds', 'Primeras distribuciones': 'distros93', 'Linux 1.0': 'redhat', 'Linux 2.0': 'tux', 'Ubuntu': 'ubuntu', 'Android': 'android', 'Linux 3.0': 'tux', 'Linux 7.0': 'tux', 'Linux 7.2 (actual)': 'distros'}
 out=[]; a=out.append
 a('<div class="circle-deco" style="left:1060px; top:24px; width:380px; height:380px;"></div>')
-a('<div class="sec-kicker" style="top:70px;">Infografía · Taller · Evolución de los SO</div>')
-a('<h2 class="sec-title" style="top:102px;">Taller: Evolución de <b>Windows y Linux</b></h2>')
-a('<div class="accent-bar" style="left:100px; top:172px;"></div>')
-a('<div class="sec-lead" style="top:196px;">Dos sistemas operativos con historias distintas: Windows, el sistema comercial de Microsoft, y Linux, el núcleo libre creado por una comunidad. Así evolucionaron desde sus primeras versiones hasta hoy.</div>')
+a('<div class="sec-kicker" style="top:64px; width:1000px; height:28px; line-height:28px;">Infografía · Taller · Evolución de los SO</div>')
+a('<h2 class="sec-title" style="top:104px; width:1166px; height:60px; line-height:60px;">Taller: Evolución de <b>Windows y Linux</b></h2>')
+a('<div class="accent-bar" style="left:100px; top:178px;"></div>')
+a('<div class="sec-lead" style="top:202px; width:1166px;">Dos sistemas operativos con historias distintas: Windows, el sistema comercial de Microsoft, y Linux, el núcleo libre creado por una comunidad. Así evolucionaron desde sus primeras versiones hasta hoy.</div>')
 y=300
 def block(title, sub, items, y):
-    a(f'<div class="os-head" style="top:{y}px;">{title}<span>{sub}</span></div>')
-    y+=90
+    a(f'<div class="os-bar" style="top:{y}px;"></div>')
+    a(f'<div class="os-title" style="top:{y}px;">{title}</div>')
+    a(f'<div class="os-sub" style="top:{y+50}px;">{sub}</div>')
+    y+=110
     for i,(yr,n,d) in enumerate(items):
         left=100 if i%2==0 else 698
-        top=y+(i//2)*136
+        top=y+(i//2)*224
         cls="card now" if i==len(items)-1 else "card"
-        a(f'<div class="{cls}" style="left:{left}px; top:{top}px;"><div class="yr">{yr}</div><h3>{n}</h3><p>{d}</p></div>')
-    return y+((len(items)+1)//2)*136
+        im=IM.get(n)
+        if not im: cls+=" noimg"
+        pic=f'<img class="pic" src="{IMG}{im}.png" alt="">' if im else ""
+        a(f'<div class="{cls}" style="left:{left}px; top:{top}px;"><div class="yr">{yr}</div><div class="ct">{n}</div><div class="cd">{d}</div>{pic}</div>')
+    return y+((len(items)+1)//2)*224
 y=block("Evolución de Windows","MICROSOFT · 1985 – 2026",WIN,y)
 y+=40; a(f'<div class="divider" style="top:{y}px;"></div>'); y+=50
 y=block("Evolución de Linux","UNIX · GNU · LINUX · 1969 – 2026",LIN,y)
 y+=30
-a(f'<div class="sources" style="top:{y}px;">Fuentes: Microsoft Learn, «Windows 11 release information» (2026); Windows Experience Blog (29/09/2026); kernel.org (10/2026);<br>Torvalds, L. (1991), anuncio en comp.os.minix; gnu.org, «Anuncio inicial» (1983); Tanenbaum, A. S. y Bos, H. (2015). <i>Modern Operating Systems</i>. Pearson.</div>')
-f=y+46+40
+a(f'<div class="sources" style="top:{y}px;">Fuentes: Microsoft Learn, «Windows 11 release information» (2026); Windows Experience Blog (29/09/2026); kernel.org (10/2026);<br>Torvalds, L. (1991), anuncio en comp.os.minix; gnu.org, «Anuncio inicial» (1983); Tanenbaum, A. S. y Bos, H. (2015). <i>Modern Operating Systems</i>. Pearson.<br>Imágenes: Wikimedia Commons (logotipos de dominio público y licencias libres).</div>')
+f=y+70+40
 a(f'<div class="footer" style="top:{f}px;">')
 a('  <div class="footer-main">Elaborado por <b>Jhonatan Jara</b> · Computación · UTPL · 2026</div>')
 a('  <div class="footer-sub">Taller de la Evolución de los Sistemas Operativos · Windows y Linux</div>')
@@ -75,5 +86,5 @@ a('</div>')
 H=f+140
 head=src.split("<style>")[0].replace("Funciones de los componentes de un Sistema Operativo · Jhonatan Jara","Evolución de Windows y Linux · Jhonatan Jara")
 section=f'<section class="page" style="height:{H}px;" data-document-role="page" data-label="Evolución de Windows y Linux">\n  '+"\n  ".join(out)+'\n</section>'
-(ROOT/"taller-windows-linux.html").write_text(f"{head}<style>{style}{extra}</style>\n</head>\n<body>\n\n{section}\n\n</body>\n</html>\n",encoding="utf-8")
+(ROOT/("taller-windows-linux"+("-local" if LOCAL else "")+".html")).write_text(f"{head}<style>{style}{extra}</style>\n</head>\n<body>\n\n{section}\n\n</body>\n</html>\n",encoding="utf-8")
 print("H",H)
